@@ -1,0 +1,23 @@
+{
+  "name": "maximoubot",
+  "version": "1.0.0",
+  "description": "Maximou bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anooxi/Discord_Bot.git"
+  },
+  "author": "Maxime Reiter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Anooxi/Discord_Bot/issues"
+  },
+  "homepage": "https://github.com/Anooxi/Discord_Bot#readme",
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "nodemon": "^2.0.1"
+  }
+}
