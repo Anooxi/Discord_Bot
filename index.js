@@ -1,31 +1,44 @@
 const botconfig = require("./token.json")
 const Discord = require('discord.js')
 const client = new Discord.Client()
+const fs = require("fs")
+const Enmap = require('enmap')
 
-client.on('ready', () => {
-    console.log("Connected as " + client.user.tag)
-    console.log("Servers :")
-    client.guilds.forEach((guild) => {
-        console.log(" - " + guild.name);
+client.config = botconfig;
 
-        guild.channels.forEach((channel) => {
-            console.log(" -- " + channel.type + " : " +channel.name + " --- " + channel.id)
-        })
+fs.readdir('./events/', (err,files) => {
+    if(err){
+        return console.log(err)
+    }
 
+    files.forEach(file => {
+        if(!file.endsWith('.js')){
+            return
+        }
+        const event = require('./events/' + file)
+        let eventName = file.split('.')[0]
+        console.log("Succesfully loaded event : " + file)
+        client.on(eventName, event.bind(null, client))
+        delete require.cache[require.resolve(`./events/${file}`)]
     })
-    client.user.setActivity("avec du JS!")
 })
 
-client.on('message', (receivedMessage) => {
-    // Empeche le bot de repondre a ses propres messages
-    if ( receivedMessage.author == client.user || receivedMessage.author.bot || receivedMessage.channel.type == "dm"){
-        return
+client.commands = new Enmap();
+
+fs.readdir('./commands/', (err,files) => {
+    if(err){
+        return console.log(err)
     }
-    let prefix = botconfig.prefix
-    if(!receivedMessage.content.startsWith(prefix)) return;
-    let messageArray = receivedMessage.content.split(" ");
-    let cmd = messageArray[0];
-    let args = messageArray.slice(1);
+
+    files.forEach(file => {
+        if(!file.endsWith('.js')){
+            return
+        }
+        let props = require('./commands/' + file)
+        console.log("Succesfully loaded command : " + file)
+        let commandName = file.split('.')[0]
+        client.commands.set(commandName, props)
+    })
 })
 
 client.login(botconfig.token)
