@@ -9,7 +9,25 @@ exports.run = async (client,message,args) => {
             console.log(err);
         } else {
         obj = JSON.parse(data); //now it an object
-        obj[serv] = chan; //add some data
+        let bool = true;
+        let cpt = 0;
+        console.log(obj.table)
+        obj.table.forEach((line) => {
+            if(line.serv == serv){
+                bool = false
+            }
+            console.log(line)
+            cpt++;
+        })
+        if(bool){
+            obj.table.push({
+                serv: serv,
+                chan: chan
+            }); //add some data
+        } else {
+            obj.table.serv = chan;
+        }
+        
         json = JSON.stringify(obj); //convert it back to json
         fs.writeFile('./defaultchannels.json', json, 'utf8', (err) => {
             if(err) console.log(err);

@@ -7,6 +7,9 @@ module.exports = (client) => {
         // guild.channels.forEach((channel) => {
         //     console.log(" -- " + channel.type + " : " +channel.name + " --- " + channel.id)
         // })
+        // guild.members.forEach((member) => {
+        //     console.log(" - " + member.id + " : " + member.nickname )
+        // })
 
     })
     client.user.setActivity("avec du JS!")
