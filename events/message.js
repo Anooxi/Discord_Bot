@@ -8,20 +8,26 @@ module.exports = (client,message) => {
         fs.readFile("./defaultchannels.json",'utf8', (err,data)=> {
             if(err) reject(err);
             let obj = JSON.parse(data)
-            obj.table.forEach((test) => {
-                console.log(test);
+            obj.table.forEach((line) => {
+                if(line.chan == message.channel.id || command === "setchannel"){
+                    resolve(true)
+                }
             })
-            resolve(data)
+            resolve(false)
         })
     })
     const cmd = client.commands.get(command);
     promise.then(
         function (result){
-            if(!cmd) return;
-            cmd.run(client,message,args);
+            if(result == true){
+                if(!cmd) return;
+                cmd.run(client,message,args);
+            } else {
+                // console.log("???")
+            }
         },
         function (error){
-            console.log(error)
+            console.error(error)
         }
     )
     // const cmd = client.commands.get(command)

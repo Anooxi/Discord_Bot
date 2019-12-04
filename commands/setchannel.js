@@ -10,22 +10,18 @@ exports.run = async (client,message,args) => {
         } else {
         obj = JSON.parse(data); //now it an object
         let bool = true;
-        let cpt = 0;
-        console.log(obj.table)
+        // console.log(obj.table)
         obj.table.forEach((line) => {
             if(line.serv == serv){
-                bool = false
+                line.chan = chan
+                bool = false;
             }
-            console.log(line)
-            cpt++;
         })
         if(bool){
             obj.table.push({
                 serv: serv,
                 chan: chan
             }); //add some data
-        } else {
-            obj.table.serv = chan;
         }
         
         json = JSON.stringify(obj); //convert it back to json
