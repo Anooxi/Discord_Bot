@@ -2,7 +2,7 @@ const fs = require('fs')
 module.exports = (client,message) => {
     if(message.author.bot) return;
     if(message.content.includes("<@!273182362039222273>")){
-        message.react(":regional_indicator_t:")
+        let pro1 = await message.react(":regional_indicator_t:")
     }
     if(message.content.indexOf(client.config.prefix) !== 0) return
     const args = message.content.slice(client.config.prefix.length).trim().split(/ +/g);
