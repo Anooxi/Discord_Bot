@@ -11,7 +11,7 @@ module.exports = (client,emoji) => {
                 rich.setDescription(":"+ emoji.name +":")
                 let promise = emoji.fetchAuthor()
                 promise.then(function (result) {
-                    rich.setAuthor("Auteur de la monstruosité : " + result.username)
+                    rich.setAuthor("Auteur de la monstruosité : " + result.nickname)
                     client.channels.get(line.chan).send(rich)
                 })
             }
