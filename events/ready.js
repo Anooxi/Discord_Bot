@@ -12,5 +12,5 @@ module.exports = (client) => {
         // })
 
     })
-    client.user.setActivity("avec du JS!")
+    client.user.setActivity("bipboup je suis un robot")
 }
