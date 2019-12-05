@@ -1,4 +1,10 @@
-module.exports = (messageReaction, user) => {
+module.exports = (client, messageReaction, user) => {
     if(user.bot) return;
-    console.log(messageReaction)
+    if(!messageReaction.message.embeds[0]) return;
+    if(messageReaction.emoji != '👍') return;
+    messageReaction.message.guild.fetchMember(user)
+        .then(member => {
+            member.addRole(messageReaction.message.embeds[0].footer.text)
+        })
+        .catch(console.error)
 }
