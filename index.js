@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const botconfig = require("./token.json")
 const Discord = require('discord.js')
 const client = new Discord.Client()
