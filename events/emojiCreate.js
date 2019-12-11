@@ -9,7 +9,8 @@ module.exports = (client,emoji) => {
                 let rich = new Discord.RichEmbed()
                 rich.setImage(emoji.url)
                 rich.setDescription(":"+ emoji.name +":")
-                let promise = emoji.fetchAuthor()
+                // let promise = emoji.fetchAuthor()
+                let promise = emoji.guild.fetchMember(emoji.fetchAuthor())
                 promise.then(function (result) {
                     rich.setAuthor("Auteur de la monstruosité : " + result.username)
                     client.channels.get(line.chan).send(rich)
