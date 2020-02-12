@@ -32,7 +32,7 @@ exports.run = async (client,message,args) => {
             if(bod.ok){
                 message.channel.send("Nouveau code ajouté");
             } else {
-                message.channel.send("Erreur" + bod.message);
+                message.channel.send("Erreur : " + bod);
             }
         };
         // if(res) console.log(res);
