@@ -17,7 +17,7 @@ exports.run = async (client,message,args) => {
         if(bod){
             console.log(bod)
 
-            if(bod.ok){
+            if(bod.ok == true){
                 message.reply(bod.reward);
             } else {
                 message.reply("T NUL WSH");
