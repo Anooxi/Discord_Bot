@@ -11,19 +11,19 @@ exports.run = async (client,message,args) => {
         return;
     }
     let details = ""
-    let query = "&query="
+    let query = "?query="
     if(args[0] == "true"){
         details += "?details=true";
+        query = "&query="
     }
-    if(args[1]){
+    if(!args[1]){
         query = ""
-    } else {
-        query = "?query="
     }
     for(let str of args.splice(1,args.length)){
         query += str + " ";
     }
-    let url = "https://lecodedudestin.dorpaxio.fr:3002/v1/codes" + details + query;
+    let url = "https://lecodedudestin.dorpaxio.fr:3002/v1/codes" + details + query.slice(0, -1);
+    console.log(url);
     request.get({
         url: url,
         ...obj
