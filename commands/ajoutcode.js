@@ -28,7 +28,13 @@ exports.run = async (client,message,args) => {
         }), ...obj
     }, (err,res,bod) => {
         if(err) console.log(err);
-        if(bod) console.log(bod);
+        if(bod) {
+            if(bod.ok){
+                message.channel.send("Code crée");
+            } else {
+                message.channel.send("Erreur code pas crée");
+            }
+        };
         // if(res) console.log(res);
     })
 }
