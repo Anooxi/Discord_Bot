@@ -29,10 +29,11 @@ exports.run = async (client,message,args) => {
     }, (err,res,bod) => {
         if(err) console.log(err);
         if(bod) {
-            if(bod.ok){
-                message.channel.send("Nouveau code ajouté");
+            bodObj = JSON.parse(bod);
+            if(bodObj.ok){
+                message.reply(bodObj.message);
             } else {
-                message.channel.send("Erreur : " + bod);
+                message.reply("Error : " + bodObj.message);
             }
         };
         // if(res) console.log(res);

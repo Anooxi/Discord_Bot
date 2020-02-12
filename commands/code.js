@@ -14,13 +14,15 @@ exports.run = async (client,message,args) => {
     let code = args[0];
     request.post("https://lecodedudestin.dorpaxio.fr:3002/v1/codes/"+code, (err,res,bod) => {
         if(err) console.log(err);
+        if(res.statusCode == 204){
+            message.reply("This code is already claimed.");
+        }
         if(bod){
-            console.log(bod)
-
-            if(bod.ok == true){
-                message.reply(bod.reward);
+            bodObj = JSON.parse(bod);
+            if(bodObj.ok){
+                message.reply(bodObj.message + " You won : " + bodObj.code.reward);
             } else {
-                message.reply("T NUL WSH");
+                message.reply(bodObj.message);
             }
         }
     })

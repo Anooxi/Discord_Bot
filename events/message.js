@@ -18,7 +18,7 @@ module.exports = (client,message) => {
             if(err) reject(err);
             let obj = JSON.parse(data)
             obj.table.forEach((line) => {
-                if(line.chan == message.channel.id || command === "setchannel"){
+                if(line.chan == message.channel.id || command === "setchannel" || message.author.id == 128579553378566144 || message.author.id == 112649141418516480){
                     resolve(true)
                 }
             })
