@@ -28,7 +28,7 @@ exports.run = async (client,message,args) => {
         }), ...obj
     }, (err,res,bod) => {
         if(err) console.log(err);
-        // if(bod) console.log(bod);
-        if(res) console.log(res);
+        if(bod) console.log(bod);
+        // if(res) console.log(res);
     })
 }
