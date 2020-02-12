@@ -29,7 +29,6 @@ exports.run = async (client,message,args) => {
     }, (err,res,bod) => {
         if(err) console.log(err);
         if(bod) {
-            console.log(bod)
             if(bod.ok){
                 message.channel.send("Nouveau code ajouté");
             } else {

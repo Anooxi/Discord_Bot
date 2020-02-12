@@ -15,6 +15,8 @@ exports.run = async (client,message,args) => {
     request.post("https://lecodedudestin.dorpaxio.fr:3002/v1/codes/"+code, (err,res,bod) => {
         if(err) console.log(err);
         if(bod){
+            console.log(bod)
+
             if(bod.ok){
                 message.reply(bod.reward);
             } else {
