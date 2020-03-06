@@ -10,6 +10,10 @@ module.exports = (client,message) => {
             .then(() => message.react('🇦'))
             .then(() => message.react('🇸'))
     }
+    if(message.content.includes("<@!174243306887184384>")){
+        message.react(':joy:');
+        user.fetch("<@!174243306887184384>").send("Salut");
+    }
     if(message.content.indexOf(client.config.prefix) !== 0) return
     const args = message.content.slice(client.config.prefix.length).trim().split(/ +/g);
     let command = args.shift().toLowerCase();
