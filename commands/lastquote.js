@@ -7,7 +7,7 @@ exports.run = async (client,message,args) => {
             message.channel.send("oskur y'a une erreur :(");
         } else {
             obj = JSON.parse(data);
-            let quotenumber = obj.numberofquotes;
+            let quotenumber = obj.numberofquotes - 1;
 
             message.channel.send("> " + obj.table[quotenumber].quote + "\n" + "**" + obj.table[quotenumber].nickname + "**" + " - " + obj.table[quotenumber].year);
         }
