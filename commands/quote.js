@@ -12,4 +12,5 @@ exports.run = async (client,message,args) => {
             message.channel.send("> " + obj.table[quotenumber].quote + "\n" + "**" + obj.table[quotenumber].nickname + "**" + " - " + obj.table[quotenumber].year);
         }
     });
+    message.delete();
 }
