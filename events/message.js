@@ -11,7 +11,7 @@ module.exports = (client,message) => {
             .then(() => message.react('🇸'))
     }
     if(message.content.includes("<@!174243306887184384>")){
-        message.react('\:joy:');
+        message.react('😂');
     }
     if(message.content.indexOf(client.config.prefix) !== 0) return
     const args = message.content.slice(client.config.prefix.length).trim().split(/ +/g);
