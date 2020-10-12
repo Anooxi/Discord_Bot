@@ -1,7 +1,15 @@
 const fs = require('fs')
 module.exports = (client,message) => {
     if(message.author.bot) return;
-    if(message.content.includes("<@!273182362039222273>")){
+    if(message.content.includes("<@!273182362039222273>") && message.content.includes("<@!174243306887184384>") ){
+        message.react('🇹')
+            .then(() => message.react('🇭'))
+            .then(() => message.react('😂'))
+            .then(() => message.react('➖'))
+            .then(() => message.react('🇲'))
+            .then(() => message.react('🇦'))
+            .then(() => message.react('🇸'))
+    } else if(message.content.includes("<@!273182362039222273>")){
         message.react('🇹')
             .then(() => message.react('🇭'))
             .then(() => message.react('🇴'))
@@ -9,8 +17,7 @@ module.exports = (client,message) => {
             .then(() => message.react('🇲'))
             .then(() => message.react('🇦'))
             .then(() => message.react('🇸'))
-    }
-    if(message.content.includes("<@!174243306887184384>")){
+    } else if(message.content.includes("<@!174243306887184384>")){
         message.react('😂');
     }
     if(message.content.indexOf(client.config.prefix) !== 0) return
