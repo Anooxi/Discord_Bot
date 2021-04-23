@@ -19,6 +19,8 @@ module.exports = (client,message) => {
             .then(() => message.react('🇸'))
     } else if(message.content.includes("<@!174243306887184384>")){
         message.react('😂');
+    } else if(message.content.includes("<@128579553378566144>")){
+        message.author.send("https://freetrial.finalfantasyxiv.com/fr/");
     }
     if(message.content.indexOf(client.config.prefix) !== 0) return
     const args = message.content.slice(client.config.prefix.length).trim().split(/ +/g);
